@@ -32,7 +32,6 @@ function App() {
         <Route path="/kdrama" element={<Kdrama />} />
         <Route path="/proposal" element={<Proposal />} />
         <Route path="/locked-up" element={<LockedUp />} /> 
-        <Route path="*" element={<div><h1>404 - Page Not Found</h1></div>} />
       </Routes>
     </Router>
   );
