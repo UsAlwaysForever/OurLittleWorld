@@ -5,7 +5,7 @@
 }
 
 .quiz-section {
-  margin: 20px 0;
+  margin: 20px 200px;
   display: flex;
   flex-direction: column;
   gap: 15px;

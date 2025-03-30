@@ -20,8 +20,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 30px; /* Reduced gap for closer buttons */
-  margin: 40px 0;
+  gap: 10px; /* Reduced gap for closer buttons */
+  margin: 40px 80px;
   width: 100%;
   max-width: 400px; /* Limit width to keep buttons centered and close */
   align-items: center;
