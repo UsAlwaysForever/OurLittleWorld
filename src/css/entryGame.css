@@ -1,0 +1,80 @@
+.entry-game {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.entry-game .glass-box {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.entry-game .buttons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Reduced gap for closer buttons */
+  margin: 40px 0;
+  width: 100%;
+  max-width: 400px; /* Limit width to keep buttons centered and close */
+  align-items: center;
+}
+
+.entry-game .yes-btn {
+  background: linear-gradient(135deg, #C71585, #8A2BE2);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.entry-game .yes-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 0, 139, 0.5);
+}
+
+.entry-game .no-btn {
+  background: linear-gradient(135deg, #C71585, #8A2BE2);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.entry-game .no-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 0, 139, 0.5);
+}
+
+@media (max-width: 480px) {
+  .entry-game .glass-box {
+    max-width: 90%;
+  }
+
+  .entry-game .buttons {
+    flex-direction: column;
+    gap: 15px; /* Adjusted gap for mobile */
+    max-width: 300px;
+  }
+
+  .entry-game .yes-btn,
+  .entry-game .no-btn {
+    padding: 12px 24px;
+    font-size: 20px;
+  }
+}

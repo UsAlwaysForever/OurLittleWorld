@@ -1,0 +1,205 @@
+/* scrapbook.css */
+
+.scrapbook-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.page {
+  background: rgba(178, 34, 34, 0.15); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  box-shadow: 0 4px 10px rgba(178, 34, 34, 0.2); /* Red shadow */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.page:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 0 20px rgba(139, 0, 139, 0.6); /* Purple glow */
+}
+
+.page p {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: #E6CCFF; /* Soft purple */
+  margin: 10px 0;
+}
+
+/* Polaroid frame styling */
+.polaroid-frame {
+  background: #FDF5E6; /* Off-white retained */
+  padding: 15px 15px 40px 15px;
+  border: 1px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3); /* Red shadow */
+  margin: 10px;
+  transform: rotate(-3deg);
+  width: 200px;
+}
+
+.polaroid-frame img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #C71585; /* Deep pinkish-red */
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Side photos animation */
+.side-photos {
+  position: fixed;
+  top: 0;
+  height: 200%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.left-photos {
+  left: 10px;
+  animation: scrollDown 25s linear infinite;
+}
+
+.right-photos {
+  right: 10px;
+  animation: scrollUp 25s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Add page section */
+.add-page {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.memory-input, .url-input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #E6CCFF; /* Soft purple */
+  width: 100%;
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.memory-input::placeholder, .url-input::placeholder {
+  color: #E6CCFF;
+  opacity: 0.7;
+}
+
+.memory-input:focus, .url-input:focus {
+  border-color: #C71585; /* Deep pinkish-red */
+  box-shadow: 0 0 10px rgba(139, 0, 139, 0.5); /* Purple glow */
+  outline: none;
+}
+
+/* Custom file input */
+.image-input {
+  display: none;
+}
+
+.image-label {
+  padding: 10px 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: white;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+}
+
+.image-label:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+.add-btn {
+  padding: 10px 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 480px) {
+  .scrapbook-container {
+    max-width: 100%;
+  }
+
+  .page {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .memory-input, .url-input {
+    max-width: 250px;
+  }
+
+  .add-btn, .image-label {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .polaroid-frame {
+    width: 150px;
+  }
+
+  .left-photos, .right-photos {
+    display: none;
+  }
+}

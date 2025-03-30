@@ -1,0 +1,66 @@
+/* locked-up.css */
+
+.locked-up-page {
+  position: relative;
+  z-index: 0;
+}
+
+/* Ensure shared.css styles are not overridden */
+.locked-up-page h1,
+.locked-up-page p {
+  /* Inherit styles from shared.css */
+}
+
+.lock-emoji {
+  font-size: 50px;
+  margin: 20px 0;
+  animation: pulse 2s infinite ease-in-out;
+  z-index: 1;
+  color: #C71585; /* Deep pinkish-red */
+}
+
+.cute-message {
+  font-size: 24px;
+  z-index: 1;
+  color: #E6CCFF; /* Soft purple with red warmth */
+  font-family: 'Caveat', cursive;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.sparkles {
+  font-size: 30px;
+  margin-top: 20px;
+  z-index: 1;
+  color: #8A2BE2; /* Medium purple */
+}
+
+.falling-heart {
+  position: absolute;
+  font-size: 20px;
+  animation: fall 5s linear forwards;
+  z-index: 0;
+  color: #C71585; /* Deep pinkish-red */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}

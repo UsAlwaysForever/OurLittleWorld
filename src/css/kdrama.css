@@ -1,0 +1,45 @@
+/* kdrama.css */
+
+.kdrama-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.kdrama {
+  background: rgba(178, 34, 34, 0.15); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 15px;
+  border-radius: 15px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(139, 0, 139, 0.3); /* Purple border */
+  transition: all 0.3s ease;
+  color: #E6CCFF; /* Soft purple text */
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+}
+
+.kdrama:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(139, 0, 139, 0.5); /* Purple shadow */
+  background: rgba(178, 34, 34, 0.25); /* Slightly more opaque red */
+}
+
+@media (max-width: 480px) {
+  .kdrama-container {
+    max-width: 100%;
+  }
+
+  .kdrama {
+    max-width: 300px;
+    padding: 10px;
+    font-size: 18px;
+  }
+}

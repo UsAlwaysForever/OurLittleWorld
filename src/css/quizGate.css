@@ -1,0 +1,95 @@
+/* quiz-gate.css */
+
+.quiz-gate {
+  position: relative;
+}
+
+.quiz-section {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(139, 0, 139, 0.7); /* Purple glow */
+  border: 1px solid rgba(139, 0, 139, 0.3); /* Purple border */
+}
+
+.quiz-section input,
+.quiz-section button {
+  width: 100%;
+  max-width: 300px;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.quiz-section input {
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #E6CCFF; /* Soft purple */
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+.quiz-section input::placeholder {
+  color: #E6CCFF;
+  opacity: 0.7;
+}
+
+.quiz-section input:focus {
+  border-color: #C71585; /* Deep pinkish-red */
+  box-shadow: 0 0 10px rgba(139, 0, 139, 0.5); /* Purple glow */
+}
+
+.quiz-section button {
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  border: none;
+}
+
+.quiz-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+.error {
+  color: #C71585; /* Deep pinkish-red */
+  text-shadow: 0 0 5px rgba(139, 0, 139, 0.5); /* Purple glow */
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .quiz-gate h1 {
+    font-size: 36px;
+  }
+
+  .quiz-gate p {
+    font-size: 16px;
+  }
+
+  .quiz-section {
+    max-width: 300px;
+  }
+
+  .quiz-section input,
+  .quiz-section button {
+    max-width: 250px;
+  }
+}

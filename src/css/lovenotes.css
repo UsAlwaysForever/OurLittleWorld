@@ -1,0 +1,355 @@
+/* lovenotes.css */
+
+#lovenotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#lovenotes input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 300px;
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #E6CCFF; /* Soft purple text */
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  transition: all 0.3s ease;
+}
+
+#lovenotes input::placeholder {
+  color: #E6CCFF;
+  opacity: 0.7;
+}
+
+#lovenotes input:focus {
+  border-color: #C71585; /* Deep pinkish-red */
+  box-shadow: 0 0 10px rgba(139, 0, 139, 0.5); /* Purple glow */
+}
+
+#lovenotes button {
+  margin: 10px 0;
+  width: 100%;
+  max-width: 150px;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+#lovenotes button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+#love-note {
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 15px;
+  color: #E6CCFF; /* Soft purple text */
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(139, 0, 139, 0.3); /* Purple border */
+  transition: all 0.3s ease;
+}
+
+#love-note:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(139, 0, 139, 0.5); /* Purple shadow */
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Envelope Wrapper */
+.envelope-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  cursor: pointer;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Envelope Container */
+.envelope {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Hover effect */
+.envelope.hovered {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+/* Open state */
+.envelope.open {
+  transform: rotateY(180deg);
+}
+
+/* Common styles for envelope parts */
+.envelope-front,
+.envelope-back,
+.envelope-flap-top,
+.envelope-flap-bottom,
+.envelope-flap-left,
+.envelope-flap-right,
+.letter {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+/* Front of the envelope */
+.envelope-front {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border: 1px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  box-shadow: 0 10px 20px rgba(178, 34, 34, 0.2); /* Red shadow */
+  transform: rotateY(0deg);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.envelope-text {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #E6CCFF; /* Soft purple */
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.small-hearts {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #C71585; /* Deep pinkish-red */
+}
+
+/* Back of the envelope */
+.envelope-back {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border: 1px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(178, 34, 34, 0.2); /* Red shadow */
+  border-radius: 5px;
+}
+
+/* Heart-shaped seal */
+.heart-seal {
+  font-size: 50px;
+  color: #C71585; /* Deep pinkish-red */
+  animation: glow 2s ease-in-out infinite;
+  position: relative;
+}
+
+/* Glowing animation for the heart seal */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(139, 0, 139, 0.5); }
+  50% { text-shadow: 0 0 15px rgba(178, 34, 34, 0.8); }
+  100% { text-shadow: 0 0 5px rgba(139, 0, 139, 0.5); }
+}
+
+/* Top flap */
+.envelope-flap-top {
+  width: 100%;
+  height: 40%;
+  top: 0;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border-bottom: 1px solid rgba(139, 0, 139, 0.5);
+  transform-origin: top;
+  transform: rotateX(0deg);
+  transition: transform 1s ease-in-out;
+  z-index: 3;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  box-shadow: 0 5px 10px rgba(178, 34, 34, 0.1);
+}
+
+.envelope.open .envelope-flap-top {
+  transform: rotateX(-160deg);
+}
+
+/* Bottom flap */
+.envelope-flap-bottom {
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border-top: 1px solid rgba(139, 0, 139, 0.5);
+  transform-origin: bottom;
+  transform: rotateX(0deg);
+  transition: transform 1s ease-in-out 0.2s;
+  z-index: 1;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  box-shadow: 0 -5px 10px rgba(178, 34, 34, 0.1);
+}
+
+.envelope.open .envelope-flap-bottom {
+  transform: rotateX(60deg);
+}
+
+/* Left flap */
+.envelope-flap-left {
+  width: 40%;
+  height: 100%;
+  left: 0;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border-right: 1px solid rgba(139, 0, 139, 0.5);
+  transform-origin: left;
+  transform: rotateY(0deg);
+  transition: transform 1s ease-in-out 0.4s;
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  box-shadow: -5px 0 10px rgba(178, 34, 34, 0.1);
+}
+
+.envelope.open .envelope-flap-left {
+  transform: rotateY(-60deg);
+}
+
+/* Right flap */
+.envelope-flap-right {
+  width: 40%;
+  height: 100%;
+  right: 0;
+  background: linear-gradient(135deg, #3A1A2E, #3B2E6A); /* Red to purple gradient */
+  border-left: 1px solid rgba(139, 0, 139, 0.5);
+  transform-origin: right;
+  transform: rotateY(0deg);
+  transition: transform 1s ease-in-out 0.4s;
+  z-index: 1;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  box-shadow: 5px 0 10px rgba(178, 34, 34, 0.1);
+}
+
+.envelope.open .envelope-flap-right {
+  transform: rotateY(60deg);
+}
+
+/* Letter inside */
+.letter {
+  width: 80%;
+  height: 80%;
+  background: #FDF5E6; /* Off-white retained */
+  top: 10%;
+  left: 10%;
+  transform: translateZ(-1px);
+  transition: transform 0.8s ease-in-out 1.2s, box-shadow 0.8s ease-in-out 1.2s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Add black fold lines to the letter */
+.letter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* Add subtle fold marks */
+.letter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 45%, rgba(0, 0, 0, 0.05) 50%, transparent 55%);
+  opacity: 0.3;
+}
+
+/* Shine effect on the letter */
+.letter::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+}
+
+/* Animation for letter coming out */
+.envelope.open .letter {
+  transform: translateY(-120%) translateZ(-1px) scale(1.05) rotate(2deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(139, 0, 139, 0.5); /* Purple glow */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #lovenotes input {
+    max-width: 250px;
+    font-size: 16px;
+  }
+
+  #lovenotes button {
+    max-width: 120px;
+  }
+
+  #love-note {
+    font-size: 16px;
+    max-width: 300px;
+  }
+
+  .envelope {
+    width: 300px;
+    height: 200px;
+  }
+
+  .envelope-text {
+    font-size: 22px;
+  }
+
+  .small-hearts {
+    font-size: 14px;
+  }
+
+  .heart-seal {
+    font-size: 40px;
+  }
+}

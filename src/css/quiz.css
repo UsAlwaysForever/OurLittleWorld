@@ -1,0 +1,200 @@
+/* quiz.css */
+
+#question,
+#answer,
+#result {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+#question {
+  color: #E6CCFF; /* Soft purple */
+}
+
+#answer {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  background: rgba(178, 34, 34, 0.1); /* Muted red glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #E6CCFF; /* Soft purple */
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  transition: all 0.3s ease;
+}
+
+#answer::placeholder {
+  color: #E6CCFF;
+  opacity: 0.7;
+}
+
+#answer:focus {
+  border-color: #C71585; /* Deep pinkish-red */
+  box-shadow: 0 0 10px rgba(139, 0, 139, 0.5); /* Purple glow */
+}
+
+#result {
+  color: #C71585; /* Deep pinkish-red */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+}
+
+/* Submit button styling */
+.glass-box button[type="button"] {
+  display: block;
+  margin: 15px auto;
+  padding: 10px 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+}
+
+.glass-box button[type="button"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+.glass-box button[type="button"]:active {
+  transform: scale(0.95);
+}
+
+/* Intro video and start button styling */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#intro-video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+}
+
+.start-btn {
+  padding: 12px 25px;
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: white;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+.start-btn:active {
+  transform: scale(0.95);
+}
+
+/* Congrats and final video styling */
+.congrats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#congrats {
+  color: #C71585; /* Deep pinkish-red */
+  font-family: 'Caveat', cursive;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#final-video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  border: 2px solid rgba(139, 0, 139, 0.5); /* Purple border */
+  margin-bottom: 20px;
+}
+
+/* Nav buttons styling */
+.nav-buttons {
+  margin-top: 20px;
+}
+
+.nav-buttons .btn {
+  padding: 10px 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(135deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+}
+
+.nav-buttons .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.8); /* Red glow */
+}
+
+@media (max-width: 480px) {
+  #question,
+  #answer,
+  #result {
+    max-width: 250px;
+  }
+
+  #answer {
+    font-size: 16px;
+  }
+
+  .glass-box button[type="button"] {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  #intro-video,
+  #final-video {
+    max-width: 300px;
+  }
+
+  .start-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  #congrats {
+    font-size: 28px;
+  }
+
+  .nav-buttons .btn {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}

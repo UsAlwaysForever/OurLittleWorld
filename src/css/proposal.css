@@ -1,0 +1,170 @@
+.proposal-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.proposal-page .glass-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proposal-page .message-input {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 30px 0;
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+}
+
+.proposal-page .message-input input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 0, 139, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  color: #E6CCFF;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.2);
+  transition: all 0.3s ease;
+}
+
+.proposal-page .message-input input:focus {
+  outline: none;
+  border-color: #C71585;
+  box-shadow: 0 5px 20px rgba(199, 21, 133, 0.5);
+  transform: scale(1.02);
+}
+
+.proposal-page .message-input input::placeholder {
+  color: #E6CCFF;
+  opacity: 0.7;
+}
+
+.proposal-page .message-input button {
+  background: linear-gradient(135deg, #C71585, #8A2BE2);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  transition: all 0.3s ease;
+}
+
+.proposal-page .message-input button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 0, 139, 0.5);
+}
+
+.proposal-page .message-saved {
+  color: #FFD1DC;
+  font-size: 16px;
+  margin-top: 5px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.proposal-page .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Reduced gap for closer buttons */
+  margin: 20px 0;
+  position: relative;
+  max-width: 400px; /* Limit width to keep buttons centered and close */
+  align-items: center;
+}
+
+.proposal-page .yes-btn {
+  background: linear-gradient(135deg, #C71585, #8A2BE2);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.proposal-page .yes-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 0, 139, 0.5);
+}
+
+.proposal-page .no-btn {
+  background: linear-gradient(135deg, #C71585, #8A2BE2);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.proposal-page .no-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 0, 139, 0.5);
+}
+
+.proposal-page .funny-message {
+  color: #FFD1DC;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.proposal-page .falling-heart {
+  position: absolute;
+  font-size: 24px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .proposal-page .glass-box {
+    max-width: 90%;
+  }
+
+  .proposal-page .message-input input {
+    max-width: 300px;
+    font-size: 18px;
+  }
+
+  .proposal-page .message-input button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .proposal-page .buttons {
+    flex-direction: column;
+    gap: 15px; /* Adjusted gap for mobile */
+    max-width: 300px;
+  }
+
+  .proposal-page .yes-btn,
+  .proposal-page .no-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,15 @@
+/* map.css */
+
+.map-line {
+  width: 100%;
+  max-width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  margin: 20px auto;
+}
+
+@media (max-width: 480px) {
+  .map-line {
+    max-width: 250px;
+  }
+}

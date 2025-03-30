@@ -1,0 +1,86 @@
+/* countdown.css */
+
+/* Counting display ka styling */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: #E6CCFF;
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #E6CCFF; /* Soft purple with red warmth */
+  margin: 20px 0;
+  background: rgba(178, 34, 34, 0.15); /* Muted red glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 0, 139, 0.4); /* Purple border */
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(178, 34, 34, 0.2); /* Red shadow */
+}
+
+/* Highlight numbers in the timer */
+#countdown span {
+  font-weight: bold;
+  color: #C71585; /* Deep pinkish-red */
+}
+
+/* Hover effect */
+#countdown:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(139, 0, 139, 0.6); /* Purple shadow on hover */
+  background: rgba(178, 34, 34, 0.2); /* Slightly more opaque red */
+}
+
+/* Dropdown styling for date selection */
+
+
+select {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  background: rgba(178, 34, 34, 0.1);
+  color: #E6CCFF;
+  border: 1px solid rgba(139, 0, 139, 0.4);
+}
+
+/* Dropdown hover/focus effect */
+select:hover,
+select:focus {
+  outline: none;
+  background: rgba(178, 34, 34, 0.25); /* Slightly more opaque red */
+  box-shadow: 0 0 15px rgba(139, 0, 139, 0.5); /* Purple shadow */
+  border-color: rgba(139, 0, 139, 0.6);
+}
+
+/* Option styling */
+select option {
+  background: #2E1A47; /* Dark purple background */
+  color: #E6CCFF; /* Soft purple text */
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 480px) {
+  #countdown {
+    font-size: 22px;
+    padding: 15px;
+  }
+
+  select {
+    font-size: 18px;
+    padding: 8px 12px;
+    max-width: 300px;
+  }
+}
