@@ -8,7 +8,7 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@vercel/static unqualified-build",
+        "use": "@vercel/static-build",
         "config": {
           "distDir": "dist"
         }
