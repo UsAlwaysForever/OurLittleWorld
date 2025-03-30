@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/lovenotes.css';
 
 function LoveNotes() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const [note, setNote] = useState<string>('');
   const [customText, setCustomText] = useState<string>('');
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState<boolean>(false);
@@ -126,6 +126,9 @@ function LoveNotes() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

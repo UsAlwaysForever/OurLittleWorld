@@ -19,7 +19,7 @@ interface Memory {
 }
 
 function Memories() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
   const [hearts, setHearts] = useState<Heart[]>([]);
   const [memories, setMemories] = useState<Memory[]>([
@@ -191,6 +191,9 @@ function Memories() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

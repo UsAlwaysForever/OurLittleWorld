@@ -3,7 +3,7 @@ import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
 
 function Home() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
@@ -51,6 +51,9 @@ function Home() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
     </div>

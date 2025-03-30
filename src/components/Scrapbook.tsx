@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/scrapbook.css';
 
 function Scrapbook() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const [pages, setPages] = useState<{ text: string; image?: string }[]>([
     { text: 'Our first date... 🌟', image: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&' },
     { text: 'That cute selfie we took! 📸', image: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&' },
@@ -149,6 +149,9 @@ function Scrapbook() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

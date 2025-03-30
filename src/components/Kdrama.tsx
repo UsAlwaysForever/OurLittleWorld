@@ -4,7 +4,7 @@ import '../css/shared.css';
 import '../css/kdrama.css';
 
 function Kdrama() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const kdramas: string[] = [
     'You are my Sun Shine!',
     'Goblin 🌟',
@@ -45,6 +45,9 @@ function Kdrama() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

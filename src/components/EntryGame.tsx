@@ -5,10 +5,9 @@ import '../css/shared.css';
 import '../css/entryGame.css';
 
 function EntryGame() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
-  // Initial position adjusted to keep "No" closer to "Yes"
-  const [position, setPosition] = useState({ x: 50, y: 0 }); // 50px right to avoid overlap but stay close
+  const [position, setPosition] = useState({ x: 50, y: 0 });
 
   const handleMouseEnter = () => {
     const glassBox = document.querySelector('.glass-box') as HTMLElement;
@@ -73,10 +72,10 @@ function EntryGame() {
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
         </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
+        </button>
       </div>
-      {/* <div className="nav-buttons">
-        <button type="button" onClick={() => navigate('/home')} className="btn">Home 🏠</button>
-      </div> */}
     </div>
   );
 }

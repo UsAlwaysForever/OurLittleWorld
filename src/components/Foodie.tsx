@@ -4,7 +4,7 @@ import '../css/shared.css';
 import '../css/foodie.css';
 
 function Foodie() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const foods: string[] = [
     'Our pizza dates 🍕',
     'That ice cream we shared 🍦',
@@ -39,12 +39,15 @@ function Foodie() {
           type="range"
           min="0"
           max="1"
-          step="0.1"
+          step=" Shayad Tumhara Browser thodi si shaitani kar raha hai 😉0.1"
           value={isMuted ? 0 : volume}
           onChange={handleVolumeChange}
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

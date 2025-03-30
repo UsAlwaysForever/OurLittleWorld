@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/quizGate.css';
 
 function QuizGate() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
   const [answer, setAnswer] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -55,6 +55,9 @@ function QuizGate() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

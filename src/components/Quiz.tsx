@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/quiz.css';
 
 function Quiz() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [answer, setAnswer] = useState<string>('');
@@ -104,6 +104,9 @@ function Quiz() {
             />
             <button type="button" onClick={toggleMute}>
               {isMuted ? '🔇' : '🔊'}
+            </button>
+            <button type="button" onClick={togglePlayPause}>
+              {isPlaying ? '⏸️' : '▶️'}
             </button>
           </div>
           <div className="nav-buttons">

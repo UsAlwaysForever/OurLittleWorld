@@ -11,7 +11,7 @@ interface Heart {
 }
 
 function LockedUp() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
   const location = useLocation();
   const [hearts, setHearts] = useState<Heart[]>([]);
@@ -82,6 +82,9 @@ function LockedUp() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

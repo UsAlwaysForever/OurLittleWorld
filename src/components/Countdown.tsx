@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/countdown.css';
 
 function TimeCounter() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const [selectedDateIndex, setSelectedDateIndex] = useState(0);
   const [timePassed, setTimePassed] = useState<{ days: number; hours: number; minutes: number; seconds: number } | string>('');
 
@@ -84,6 +84,9 @@ function TimeCounter() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

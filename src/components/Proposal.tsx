@@ -11,7 +11,7 @@ interface Heart {
 }
 
 function Proposal() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const navigate = useNavigate();
   const [message, setMessage] = useState<string>('');
   // Initial position adjusted to keep "No" closer to "Yes"
@@ -149,6 +149,9 @@ function Proposal() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">

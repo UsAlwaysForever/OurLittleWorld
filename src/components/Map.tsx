@@ -4,7 +4,7 @@ import '../css/shared.css';
 import '../css/map.css';
 
 function Map() {
-  const { volume, setVolume, isMuted, setIsMuted } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
   const locations: string[] = [
     'The cafe where we met ☕',
     'Our favorite pizza place 🍕',
@@ -45,6 +45,9 @@ function Map() {
         />
         <button type="button" onClick={toggleMute}>
           {isMuted ? '🔇' : '🔊'}
+        </button>
+        <button type="button" onClick={togglePlayPause}>
+          {isPlaying ? '⏸️' : '▶️'}
         </button>
       </div>
       <div className="nav-buttons">
