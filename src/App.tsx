@@ -14,28 +14,27 @@ import Kdrama from './components/Kdrama';
 import Proposal from './components/Proposal';
 import LockedUp from './components/LockedUp';
 
-
-
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<EntryGame />} />
-      <Route path="/quiz-gate" element={<QuizGate />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/memories" element={<Memories />} />
-      <Route path="/lovenotes" element={<LoveNotes />} />
-      <Route path="/countdown" element={<Countdown />} />
-      <Route path="/quiz" element={<Quiz />} />
-      <Route path="/secret" element={<Secret />} />
-      <Route path="/scrapbook" element={<Scrapbook />} />
-      <Route path="/map" element={<Map />} />
-      <Route path="/foodie" element={<Foodie />} />
-      <Route path="/kdrama" element={<Kdrama />} />
-      <Route path="/proposal" element={<Proposal />} />
-      <Route path="/locked-up" element={<LockedUp />} />
-      {/* <Router future={{ v7_relativeSplatPath: true }}></Router> */}
-
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<EntryGame />} />
+        <Route path="/quiz-gate" element={<QuizGate />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/memories" element={<Memories />} />
+        <Route path="/lovenotes" element={<LoveNotes />} />
+        <Route path="/countdown" element={<Countdown />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/secret" element={<Secret />} />
+        <Route path="/scrapbook" element={<Scrapbook />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/foodie" element={<Foodie />} />
+        <Route path="/kdrama" element={<Kdrama />} />
+        <Route path="/proposal" element={<Proposal />} />
+        <Route path="/locked-up" element={<LockedUp />} />
+        <Route path="*" element={<div><h1>404 - Page Not Found</h1></div>} />
+      </Routes>
+    </Router>
   );
 }
 
