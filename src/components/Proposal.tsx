@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
@@ -18,6 +18,7 @@ function Proposal() {
   const [hearts, setHearts] = useState<Heart[]>([]);
   const [noButtonTries, setNoButtonTries] = useState<number>(0);
   const [showMessageSaved, setShowMessageSaved] = useState<boolean>(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     let heartId = 0;
@@ -39,6 +40,13 @@ function Proposal() {
     const heartInterval = setInterval(createHeart, 500);
     return () => clearInterval(heartInterval);
   }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
 
   const handleMouseEnter = () => {
     const glassBox = document.querySelector('.glass-box') as HTMLElement;
@@ -81,18 +89,16 @@ function Proposal() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.proposal-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.proposal-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -101,11 +107,10 @@ function Proposal() {
       <div className="glass-box">
         <h1>Forever? 💍</h1>
         <video 
+          ref={videoRef}
           className="proposal-video"
           controls
-          loop 
-          volume={isMuted ? 0 : volume}
-          muted={isMuted}
+          loop
           playsInline
         >
           <source src="/videos/propose.mp4" type="video/mp4" />

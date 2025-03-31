@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
@@ -9,6 +9,14 @@ function QuizGate() {
   const navigate = useNavigate();
   const [answer, setAnswer] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
 
   const handleSubmit = () => {
     if (answer.toLowerCase() === 'yes') {
@@ -22,18 +30,16 @@ function QuizGate() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.quiz-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.quiz-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -42,11 +48,10 @@ function QuizGate() {
       <div className="glass-box">
         <h1>One Last Step! 🔐</h1>
         <video 
+          ref={videoRef}
           className="quiz-video"
           controls
-          loop 
-          volume={isMuted ? 0 : volume}
-          muted={isMuted}
+          loop
           playsInline
         >
           <source src="/videos/quizgate.mp4" type="video/mp4" />

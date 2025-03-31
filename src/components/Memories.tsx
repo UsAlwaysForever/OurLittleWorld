@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
@@ -61,6 +61,7 @@ function Memories() {
   ]);
   const [selectedMemory, setSelectedMemory] = useState<Memory | null>(null);
   const [newMemory, setNewMemory] = useState({ title: '', description: '', emoji: '', date: '' });
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     let heartId = 0;
@@ -83,22 +84,27 @@ function Memories() {
     return () => clearInterval(heartInterval);
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
+
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.memories-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.memories-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -117,11 +123,10 @@ function Memories() {
       <div className="glass-box">
         <h1>Our Memories 🍕</h1>
         <video 
+          ref={videoRef}
           className="memories-video"
           controls
-          loop 
-          volume={isMuted ? 0 : volume}
-          muted={isMuted}
+          loop
           playsInline
         >
           <source src="/videos/Memories.mp4" type="video/mp4" />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
@@ -15,6 +15,7 @@ function LockedUp() {
   const navigate = useNavigate();
   const location = useLocation();
   const [hearts, setHearts] = useState<Heart[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const queryParams = new URLSearchParams(location.search);
   const message = queryParams.get('message') || 'No message provided';
 
@@ -39,22 +40,27 @@ function LockedUp() {
     return () => clearInterval(heartInterval);
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
+
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.locked-up-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.locked-up-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -63,11 +69,10 @@ function LockedUp() {
       <div className="glass-box">
         <h1>We’re Now Locked Up Together! 🔒❤️</h1>
         <video 
+          ref={videoRef}
           className="locked-up-video"
           controls
-          loop 
-          volume={isMuted ? 0 : volume}
-          muted={isMuted}
+          loop
           playsInline
         >
           <source src="/videos/final.mp4" type="video/mp4" />

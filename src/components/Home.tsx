@@ -1,27 +1,33 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
-// import '../css/home.css'; // Agar alag CSS file chahiye toh add karna, warna shared.css mein hi adjust karenge
 
 function Home() {
   const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/DilDiyanGallan.mp3');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.home-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.home-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -31,11 +37,10 @@ function Home() {
         <div className="content-wrapper">
           <h1>Hey Riya! ❤️</h1>
           <video 
+            ref={videoRef}
             className="home-video"
             controls
-            loop 
-            volume={isMuted ? 0 : volume}
-            muted={isMuted}
+            loop
             playsInline
           >
             <source src="/videos/Home.mp4" type="video/mp4" />

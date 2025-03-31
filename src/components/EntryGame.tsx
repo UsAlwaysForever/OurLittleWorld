@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
@@ -8,6 +8,14 @@ function EntryGame() {
   const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/IkVaariAa.mp3');
   const navigate = useNavigate();
   const [position, setPosition] = useState({ x: 50, y: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = isMuted ? 0 : volume;
+      videoRef.current.muted = isMuted;
+    }
+  }, [volume, isMuted]);
 
   const handleMouseEnter = () => {
     const glassBox = document.querySelector('.glass-box') as HTMLElement;
@@ -31,18 +39,16 @@ function EntryGame() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
-    const video = document.querySelector('.entry-video') as HTMLVideoElement;
-    if (video) {
-      video.volume = newVolume;
-      video.muted = false;
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = false;
     }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    const video = document.querySelector('.entry-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !isMuted;
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
     }
   };
 
@@ -51,11 +57,10 @@ function EntryGame() {
       <div className="glass-box">
         <h1>Hey Cutie! ❤️</h1>
         <video 
+          ref={videoRef}
           className="entry-video"
           controls
-          loop 
-          volume={isMuted ? 0 : volume}
-          muted={isMuted}
+          loop
           playsInline
         >
           <source src="/videos/entrygame.mp4" type="video/mp4" />
