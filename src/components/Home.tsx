@@ -3,7 +3,7 @@ import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
 
 function Home() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/DilDiyanGallan.mp3');
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);

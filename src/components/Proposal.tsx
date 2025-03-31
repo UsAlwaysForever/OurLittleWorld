@@ -11,11 +11,10 @@ interface Heart {
 }
 
 function Proposal() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/TumHiHo.mp3');
   const navigate = useNavigate();
   const [message, setMessage] = useState<string>('');
-  // Initial position adjusted to keep "No" closer to "Yes"
-  const [position, setPosition] = useState({ x: 50, y: 0 }); // 50px right to avoid overlap but stay close
+  const [position, setPosition] = useState({ x: 50, y: 0 });
   const [hearts, setHearts] = useState<Heart[]>([]);
   const [noButtonTries, setNoButtonTries] = useState<number>(0);
   const [showMessageSaved, setShowMessageSaved] = useState<boolean>(false);

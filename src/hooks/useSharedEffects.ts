@@ -1,27 +1,26 @@
 import { useEffect, useState, useRef } from 'react';
 
-const useSharedEffects = () => {
-  const [volume, setVolume] = useState<number>(0.1);
+const useSharedEffects = (songUrl: string) => { // Song URL parameter add kiya
+  const [volume, setVolume] = useState<number>(0.2);
   const [isMuted, setIsMuted] = useState<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true); // Default playing
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Music setup
   useEffect(() => {
-    const songUrl = '/song.mp3'; // Local song in public folder
-    const audio = new Audio(songUrl);
+    const audio = new Audio(songUrl); // Dynamic song URL use karo
     audio.loop = true;
     audio.volume = volume;
     audio.play().catch(() => {
       console.log('Autoplay prevented');
-      setIsPlaying(false); // Agar autoplay block ho, to paused state
+      setIsPlaying(false);
     });
     audioRef.current = audio;
 
     return () => {
       audio.pause();
     };
-  }, []);
+  }, [songUrl]); // songUrl change hone pe audio reset ho
 
   // Volume and mute control
   useEffect(() => {

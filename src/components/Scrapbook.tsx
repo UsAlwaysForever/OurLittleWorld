@@ -5,24 +5,29 @@ import '../css/shared.css';
 import '../css/scrapbook.css';
 
 function Scrapbook() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/Raabta.mp3');
   const [pages, setPages] = useState<{ text: string; image?: string }[]>([
-    { text: 'Our first date... 🌟', image: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&' },
-    { text: 'That cute selfie we took! 📸', image: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&' },
-    { text: 'Our late-night talks... 🌙', image: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&' },
+    { text: 'Video Call... 🌟', image: '/pics/1.jpg' },
+    { text: 'Pizzaaaa 📸', image: '/pics/5.jpg' },
+    { text: 'Your Cute Smile🌙', image: '/pics/20.jpg' },
+    { text: 'Shaving Time', image: '/pics/11.jpg' },
+    { text: 'Black Shirt for you!', image: '/pics/8.jpg' },
+    { text: 'Proposal Accepted ❤️', image: '/pics/43.jpg' },
+    
   ]);
   const [newText, setNewText] = useState<string>('');
   const [newImageUrl, setNewImageUrl] = useState<string>('');
 
   const sidePhotos = [
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Love ❤️' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'You & Me 💕' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Forever 🌟' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Sweetie 🥰' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Heartbeats 💓' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Always 🌹' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Soulmate ✨' },
-    { src: 'https://cdn.discordapp.com/attachments/1199988544219906098/1341123475343015987/image.png?ex=67e8ed51&is=67e79bd1&hm=a63b867c5fe9927d49b41c2f1b6c54ba9d2f955e7e83b3315589286ac6b0c398&', caption: 'Hugs 🤗' },
+    { src: '/pics/8.jpg', caption: 'Love ❤️' },
+    { src: '/pics/21.jpg', caption: 'You & Me 💕' },
+    { src: '/pics/27.jpg', caption: 'Forever 🌟' },
+    { src: '/pics/5.jpg', caption: 'Sweetie 🥰' },
+    { src: '/pics/36.jpg', caption: 'Heartbeats 💓' },
+    { src: '/pics/2.jpg', caption: 'Always 🌹' },
+    { src: '/pics/21.jpg', caption: 'Soulmate ✨' },
+    { src: '/pics/19.jpg', caption: ' 🤗' },
+    {src: '/pics/37.jpg', caption: ' 🤗' },
   ];
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

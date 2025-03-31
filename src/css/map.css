@@ -2,14 +2,146 @@
 
 .map-line {
   width: 100%;
-  max-width: 300px;
+  max-width: 450px;
   height: 2px;
-  background: linear-gradient(90deg, #C71585, #8A2BE2); /* Red to purple gradient */
+  background: linear-gradient(90deg, #C71585, #8A2BE2);
   margin: 20px auto;
+}
+
+.virtual-map {
+  position: relative;
+  width: 450px;
+  height: 550px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #4b0082, #800080); /* Purple gradient like image */
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.path-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.virtual-pin {
+  position: absolute;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.pin {
+  font-size: 30px; /* Larger icons like image */
+  animation: pinWiggle 1s infinite;
+}
+
+.heart-pulse {
+  animation: heartPulse 0.5s infinite alternate;
+}
+
+/* Pin Note */
+.pin-note {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(53 31 45 / 90%);
+    border: 2px solid #dd007d;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+    width: 300px;
+}
+
+.pin-note p {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.pin-note textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  resize: none;
+  font-size: 1rem;
+}
+
+.pin-note .close-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #ff3e6b;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pin-note .close-btn:hover {
+  background: #ff6f91;
+}
+
+.heart-pop {
+  font-size: 2.5rem;
+  animation: heartBounce 1s infinite;
+}
+
+/* Animations */
+@keyframes pinWiggle {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) rotate(10deg); }
+  75% { transform: translate(-50%, -50%) rotate(-10deg); }
+}
+
+@keyframes heartPulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+@keyframes heartBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @media (max-width: 480px) {
   .map-line {
-    max-width: 250px;
+    max-width: 350px;
+  }
+
+  .virtual-map {
+    width: 350px;
+    height: 450px;
+  }
+
+  .pin {
+    font-size: 25px;
+  }
+
+  .pin-note {
+    width: 250px;
+    padding: 15px;
+  }
+
+  .pin-note p {
+    font-size: 1rem;
+  }
+
+  .pin-note textarea {
+    font-size: 0.9rem;
+  }
+
+  .heart-pop {
+    font-size: 2rem;
   }
 }

@@ -11,7 +11,7 @@ interface Heart {
 }
 
 function LockedUp() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/TeraHoneLagaHoon.mp3');
   const navigate = useNavigate();
   const location = useLocation();
   const [hearts, setHearts] = useState<Heart[]>([]);

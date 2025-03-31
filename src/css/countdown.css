@@ -7,9 +7,6 @@
   gap: 10px;
   font-family: 'Caveat', cursive;
   font-size: 24px;
-  color: #E6CCFF;
-  font-family: 'Caveat', cursive;
-  font-size: 28px;
   color: #E6CCFF; /* Soft purple with red warmth */
   margin: 20px 0;
   background: rgba(178, 34, 34, 0.15); /* Muted red glass effect */
@@ -36,9 +33,40 @@
   background: rgba(178, 34, 34, 0.2); /* Slightly more opaque red */
 }
 
+/* Styling for infinity display */
+.infinity-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Infinity SVG styling */
+.infinity-svg {
+  width: 80px;
+  height: 40px;
+}
+
+.infinity-svg path {
+  stroke-dasharray: 200; /* Length of the dash pattern */
+  stroke-dashoffset: 200; /* Initial offset to hide the path */
+  animation: drawInfinity 4s linear infinite; /* Animation for infinite looping */
+}
+
+@keyframes drawInfinity {
+  to {
+    stroke-dashoffset: 0; /* Fully drawn by the end */
+  }
+}
+
+.infinity-display p {
+  margin: 5px 0 0 0;
+  font-size: 24px;
+  color: #E6CCFF; /* Soft purple */
+  font-family: 'Caveat', cursive;
+}
+
 /* Dropdown styling for date selection */
-
-
 select {
   width: 100%;
   max-width: 300px;
@@ -69,8 +97,6 @@ select option {
   font-size: 18px;
 }
 
-
-
 /* Responsive design */
 @media (max-width: 480px) {
   #countdown {
@@ -83,4 +109,35 @@ select option {
     padding: 8px 12px;
     max-width: 300px;
   }
+
+  
+}
+
+.infinity-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.infinity-icon {
+  font-size: 50px;
+  color: #C71585 !important; 
+  animation: popUp 1s ease-in-out infinite alternate;
+}
+
+@keyframes popUp {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(1.2); opacity: 1; }
+}
+
+.pop-up-text {
+  font-size: 24px;
+  color: #E6CCFF;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }

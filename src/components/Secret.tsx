@@ -4,7 +4,7 @@ import '../css/shared.css';
 import '../css/secret.css';
 
 function Secret() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/TumSeHi.mp3');
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
@@ -20,7 +20,7 @@ function Secret() {
     <div className="container">
       <div className="glass-box">
         <h1>Secret Unlocked! 🔓</h1>
-        <p>I love you more than words can say... 💕</p>
+        <p>Koi secret hi nhi hai tumse tumhe kya laga tumse kuch chupayuga? 🤭 EK hi secret tha jo ab secret nhi hai I love you more than words can say... 💕</p>
       </div>
       <div className="volume-control">
         <input

@@ -5,18 +5,24 @@ import '../css/shared.css';
 import '../css/countdown.css';
 
 function TimeCounter() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/Galliyan.mp3');
   const [selectedDateIndex, setSelectedDateIndex] = useState(0);
   const [timePassed, setTimePassed] = useState<{ days: number; hours: number; minutes: number; seconds: number } | string>('');
 
   const importantDates = [
-    { date: new Date('2025-03-03T18:30:00'), label: 'The Day I Proposed 💍' },
-    { date: new Date('2025-03-03T14:00:00'), label: 'The Day We Met ❤️' },
-    { date: new Date('2025-03-03T00:00:00'), label: 'Our New Year Together 🎉' },
+    { date: new Date('2024-11-15T20:00:00'), label: 'The Day We Met as Ride Along ❤️' },
+    { date: new Date('2024-11-17T02:25:00'), label: 'The Day We Met on discord❤️' },
+    { date: new Date('2025-03-05T02:24:00'), label: 'The Day I Proposed 💍 and you said yes🥰' },
+    { date: new Date('2025-03-03T14:00:00'), label: 'Till when will we be together? ❤️' },
   ];
 
   useEffect(() => {
     const updateCounter = () => {
+      if (selectedDateIndex === 3) {
+        setTimePassed('infinity');
+        return;
+      }
+
       const now = new Date();
       const difference = now.getTime() - importantDates[selectedDateIndex].date.getTime();
 
@@ -64,7 +70,12 @@ function TimeCounter() {
           ))}
         </select>
         <div id="countdown">
-          {typeof timePassed === 'string' ? (
+          {timePassed === 'infinity' ? (
+            <div className="infinity-display">
+            <div className="infinity-icon">♾️</div>
+            <p className="pop-up-text">❤️ Forever till Infinity ❤️</p>
+          </div>
+          ) : typeof timePassed === 'string' ? (
             timePassed
           ) : (
             <>

@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/quiz.css';
 
 function Quiz() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/Galliyan.mp3');
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [answer, setAnswer] = useState<string>('');

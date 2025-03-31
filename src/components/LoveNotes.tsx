@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/lovenotes.css';
 
 function LoveNotes() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/Raabta.mp3');
   const [note, setNote] = useState<string>('');
   const [customText, setCustomText] = useState<string>('');
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState<boolean>(false);

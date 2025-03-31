@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/quizGate.css';
 
 function QuizGate() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/DilDiyanGallan.mp3');
   const navigate = useNavigate();
   const [answer, setAnswer] = useState<string>('');
   const [error, setError] = useState<string>('');

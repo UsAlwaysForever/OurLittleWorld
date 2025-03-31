@@ -5,7 +5,7 @@ import '../css/shared.css';
 import '../css/entryGame.css';
 
 function EntryGame() {
-  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects();
+  const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/IkVaariAa.mp3');
   const navigate = useNavigate();
   const [position, setPosition] = useState({ x: 50, y: 0 });
 
