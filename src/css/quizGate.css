@@ -1,7 +1,15 @@
-/* quiz-gate.css */
-
 .quiz-gate {
   position: relative;
+}
+
+.quiz-gate .quiz-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-section {
@@ -84,8 +92,14 @@
     font-size: 16px;
   }
 
+  .quiz-gate .quiz-video {
+    max-width: 100%;
+    margin: 15px auto;
+  }
+
   .quiz-section {
     max-width: 300px;
+    margin: 20px auto;
   }
 
   .quiz-section input,

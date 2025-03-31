@@ -53,7 +53,7 @@ function Memories() {
     },
     {
       id: 5,
-      title: 'Proposal 🥰',
+      title: "Proposal 🥰",
       description: 'Ye din kese bhul sakta hu hum pyaar se chatting kar rhe hospital mai tum taad rhi uske baare mai discuss kar rhi the phir tumne mujhe apna banda claim kar liya tha us din to mujhe boht butterfly feel huya boht special feel huya phir thodi chatting ke baad mene ek special message likha meri special motu ke liye utna ache se nhi likh paya tha but ha jo likh tha dil se likha and jese hi tumne ha to bola to mai to pagal sa ho gya tha ghar mai uchal khud rha tha boxing kar rha tha full energy spike aa rhe the inta acha to aaj tak nhi lga aesa lga chilla ke sabko bol du but ghar wale tod dete XD but ha tabse decide ho gya hai ki tum hi ho meri first and last girlfriend and forever life partner I will always stay with u and will love u a lot boht sara till inifity I love you Riya ❤️',
       emoji: '❤️',
       date: '2025-03-03',
@@ -87,10 +87,19 @@ function Memories() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.memories-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.memories-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   const handleAddMemory = () => {
@@ -107,6 +116,17 @@ function Memories() {
     <div className="container memories-page">
       <div className="glass-box">
         <h1>Our Memories 🍕</h1>
+        <video 
+          className="memories-video"
+          controls
+          loop 
+          volume={isMuted ? 0 : volume}
+          muted={isMuted}
+          playsInline
+        >
+          <source src="/videos/Memories.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <p>Some of our special moments together... 🥰</p>
         <p>More to come soon...🤭</p>
         <div className="memories-grid">

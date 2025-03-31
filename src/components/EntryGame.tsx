@@ -31,16 +31,36 @@ function EntryGame() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.entry-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.entry-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   return (
     <div className="container entry-game">
       <div className="glass-box">
         <h1>Hey Cutie! ❤️</h1>
+        <video 
+          className="entry-video"
+          controls
+          loop 
+          volume={isMuted ? 0 : volume}
+          muted={isMuted}
+          playsInline
+        >
+          <source src="/videos/entrygame.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <p>Do you wanna really go in?</p>
         <div className="buttons">
           <button type="button" className="btn yes-btn" onClick={() => navigate('/quiz-gate')}>

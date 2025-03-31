@@ -1,8 +1,18 @@
-/* locked-up.css */
-
 .locked-up-page {
   position: relative;
   z-index: 0;
+}
+
+/* Video Styling */
+.locked-up-page .locked-up-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3); /* Purple shadow consistent with theme */
+  z-index: 1;
 }
 
 /* Ensure shared.css styles are not overridden */
@@ -62,5 +72,19 @@
   100% {
     transform: translateY(100vh);
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .locked-up-page .locked-up-video {
+    max-width: 400px;
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .locked-up-page .locked-up-video {
+    max-width: 100%;
+    margin: 10px auto;
   }
 }

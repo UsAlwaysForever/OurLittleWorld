@@ -16,14 +16,24 @@
   text-align: center;
 }
 
+.entry-game .entry-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .entry-game .buttons {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 10px; /* Reduced gap for closer buttons */
+  gap: 10px;
   margin: 40px 80px;
   width: 100%;
-  max-width: 400px; /* Limit width to keep buttons centered and close */
+  max-width: 400px;
   align-items: center;
 }
 
@@ -66,10 +76,16 @@
     max-width: 90%;
   }
 
+  .entry-game .entry-video {
+    max-width: 100%;
+    margin: 15px auto;
+  }
+
   .entry-game .buttons {
     flex-direction: column;
-    gap: 15px; /* Adjusted gap for mobile */
+    gap: 15px;
     max-width: 300px;
+    margin: 20px auto;
   }
 
   .entry-game .yes-btn,

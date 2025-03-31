@@ -43,16 +43,36 @@ function LockedUp() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.locked-up-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.locked-up-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   return (
     <div className="container locked-up-page">
       <div className="glass-box">
         <h1>We’re Now Locked Up Together! 🔒❤️</h1>
+        <video 
+          className="locked-up-video"
+          controls
+          loop 
+          volume={isMuted ? 0 : volume}
+          muted={isMuted}
+          playsInline
+        >
+          <source src="/videos/final.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <p>Forever and always, my love... 🥰</p>
         <div className="lock-emoji">🔐</div>
         <p className="cute-message">Our hearts are tied with an invisible string! 💞</p>

@@ -14,6 +14,18 @@
   text-align: center;
 }
 
+/* Video Styling */
+.proposal-page .proposal-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3); /* Purple shadow consistent with theme */
+  z-index: 1;
+}
+
 .proposal-page .message-input {
   display: flex;
   flex-direction: column;
@@ -141,9 +153,21 @@
   100% { opacity: 1; }
 }
 
+@media (max-width: 768px) {
+  .proposal-page .proposal-video {
+    max-width: 400px;
+    margin: 15px auto;
+  }
+}
+
 @media (max-width: 480px) {
   .proposal-page .glass-box {
     max-width: 90%;
+  }
+
+  .proposal-page .proposal-video {
+    max-width: 100%;
+    margin: 10px auto;
   }
 
   .proposal-page .message-input input {

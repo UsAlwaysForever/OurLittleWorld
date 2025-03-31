@@ -20,9 +20,7 @@ function Quiz() {
     { question: 'What I like the most? Obviously after you!', answer: 'army' },
     { question: 'Which thing I like the most in you?', answer: 'everything' },
     { question: 'What I love to eat the most ', answer: 'me' },
-    { question: '', answer: 'pepperoni' },
-    { question: '', answer: 'crash landing on you' },
-    { question: '', answer: 'cafe' },
+    { question: 'Say the three special words', answer: 'i love you' },
   ];
 
   const handleStart = () => {
@@ -59,7 +57,7 @@ function Quiz() {
       {showIntro ? (
         <div className="intro-container">
           <video id="intro-video" controls autoPlay>
-            <source src="/path/to/your/intro-video.mp4" type="video/mp4" />
+            <source src="/videos/quiz.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <button type="button" className="start-btn" onClick={handleStart}>
@@ -70,7 +68,7 @@ function Quiz() {
         <div className="congrats-container">
           <h1 id="congrats">Congratulations! 🎉💖</h1>
           <video id="final-video" controls autoPlay>
-            <source src="/path/to/your/final-video.mp4" type="video/mp4" />
+            <source src="/path/to/your/quizwin.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="nav-buttons">

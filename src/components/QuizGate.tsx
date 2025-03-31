@@ -22,16 +22,36 @@ function QuizGate() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.quiz-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.quiz-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   return (
     <div className="container quiz-gate">
       <div className="glass-box">
         <h1>One Last Step! 🔐</h1>
+        <video 
+          className="quiz-video"
+          controls
+          loop 
+          volume={isMuted ? 0 : volume}
+          muted={isMuted}
+          playsInline
+        >
+          <source src="/videos/quizgate.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <p>Do you love me? 🥰</p>
         <div className="quiz-section">
           <input

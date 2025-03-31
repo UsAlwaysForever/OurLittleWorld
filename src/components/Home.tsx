@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import useSharedEffects from '../hooks/useSharedEffects';
 import '../css/shared.css';
+// import '../css/home.css'; // Agar alag CSS file chahiye toh add karna, warna shared.css mein hi adjust karenge
 
 function Home() {
   const { volume, setVolume, isMuted, setIsMuted, isPlaying, togglePlayPause } = useSharedEffects('/songs/DilDiyanGallan.mp3');
@@ -9,17 +10,37 @@ function Home() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.home-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.home-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   return (
-    <div className="container">
+    <div className="container home">
       <div className="glass-box">
         <div className="content-wrapper">
           <h1>Hey Riya! ❤️</h1>
+          <video 
+            className="home-video"
+            controls
+            loop 
+            volume={isMuted ? 0 : volume}
+            muted={isMuted}
+            playsInline
+          >
+            <source src="/videos/Home.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <p>Meri Pyari Motu! 💕</p>
           <p>This is a little surprise from my side</p>
           <p>Our tiny, cute world ~ miles apart but super close!</p>

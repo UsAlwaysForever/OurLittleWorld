@@ -1,8 +1,18 @@
-/* memories.css */
-
 .memories-page {
   position: relative;
   z-index: 0;
+}
+
+/* Video Styling */
+.memories-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(139, 0, 139, 0.3); /* Purple shadow consistent with theme */
+  z-index: 1;
 }
 
 /* Memories Grid */
@@ -194,5 +204,19 @@
   100% {
     transform: translateY(100vh);
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .memories-video {
+    max-width: 400px;
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .memories-video {
+    max-width: 100%;
+    margin: 10px auto;
   }
 }

@@ -81,16 +81,36 @@ function Proposal() {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     setIsMuted(false);
+    const video = document.querySelector('.proposal-video') as HTMLVideoElement;
+    if (video) {
+      video.volume = newVolume;
+      video.muted = false;
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+    const video = document.querySelector('.proposal-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = !isMuted;
+    }
   };
 
   return (
     <div className="container proposal-page">
       <div className="glass-box">
         <h1>Forever? 💍</h1>
+        <video 
+          className="proposal-video"
+          controls
+          loop 
+          volume={isMuted ? 0 : volume}
+          muted={isMuted}
+          playsInline
+        >
+          <source src="/videos/propose.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <p>Tell me something sweet before you answer... 🥰</p>
         <div className="message-input">
           <input
