@@ -68,7 +68,7 @@ function Quiz() {
         <div className="congrats-container">
           <h1 id="congrats">Congratulations! 🎉💖</h1>
           <video id="final-video" controls autoPlay>
-            <source src="/path/to/your/quizwin.mp4" type="video/mp4" />
+            <source src="/videos/quizwin.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="nav-buttons">
